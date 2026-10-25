@@ -1,0 +1,80 @@
+#api call for signup
+###
+POST http://127.0.0.1:8000/complaints/signup/
+Content-Type: application/json
+
+{
+    "username":"user2",
+    "first_name":"user2",
+    "last_name":"A B",
+    "email":"user2@gmail.com",
+    "password":"password@123"
+
+}
+
+#api call for token
+###
+POST  http://127.0.0.1:8000/complaints/token/
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "password":"password@123"
+
+}
+
+#====complaints endpoint====
+#api call for list complaints
+###
+GET http://127.0.0.1:8000/complaints/complaint/
+Accept: application/json
+Authorization: Basic user2:password@123
+
+#api call for create complaint
+###
+POST http://127.0.0.1:8000/complaints/complaint/
+Content-Type: application/json
+Authorization: Basic user2:password@123
+
+{
+    "title": "Long waiting time",
+    "description": "Patients are waiting too long for Pharmacy bill.",
+    "complaint_type": "Waiting Time",
+    "department": "Pharmacy",
+    "priority": "Medium",
+    "status": "Under Review"
+}
+
+#api call for retrieve complaint
+###
+GET  http://127.0.0.1:8000/complaints/1/
+Accept: application/json
+Authorization: Basic user2:password@123
+
+#api call for update complaint
+###
+PUT http://127.0.0.1:8000/complaints/1/
+Content-Type: application/json
+Authorization: Basic user2:password@123
+
+{
+  "title": "Unclean hospital room",
+  "description": "The patient room is not cleaned properly.",
+  "complaint_type": "Cleanliness",
+  "department": "General Medicine",
+  "priority": "High",
+  "status": "In Progress"
+}
+
+#api call for delete complaint
+###
+DELETE http://127.0.0.1:8000/complaints/3/
+Accept: application/json
+Authorization: Basic user2:password@123
+
+
+#api call for summaary
+###
+GET http://127.0.0.1:8000/complaints/summary/
+Accept: application/json
+Authorization: Basic user2:password@123
